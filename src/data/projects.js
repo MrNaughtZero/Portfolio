@@ -1,45 +1,45 @@
 export const projects = {
-	eliment: {
-		slug: 'eliment',
-		title: 'ELIMENT',
-		description:
-			'A comprehensive Elementor component library with a React dashboard, allowing users to browse, preview, and copy components directly into their Elementor sites.',
-		client: 'Eliment.io',
-		role: 'Full Stack Developer',
-		year: '2025',
-		demoUrl: 'https://eliment.io',
-		heroImage: '/images/eliment_io.png',
-		challenge:
-			'Elementor users needed a way to access modern, reusable components that they could easily copy and paste into their own WordPress sites. The challenge was creating a component library where components use consistent styles, allowing users to apply their own custom styling while providing a seamless preview and browsing experience through a React dashboard.',
-		solution: [
-			"Built an Elementor component library where each component uses consistent styles sitewide, allowing end-users to easily copy and paste components into their own Elementor sites and apply their own custom styles. Future plans include automatic adaptation to users' global fonts, colors, and typography settings from their Elementor configuration.",
-			'Created a preview domain using WordPress and Elementor, where components are built and displayed. These components are embedded via iFrame into the React dashboard, providing users with a true-to-life demonstration of how components work within the actual Elementor editor.',
-			'Integrated Supabase for authentication, with planned payment functionality for future releases. Supabase also powers the admin system, allowing administrators to add new components and link them from the preview site to the React dashboard.',
-			'Developed a custom SCSS architecture for the dashboard design, ensuring a maintainable and cohesive styling system for the React-based admin interface.',
-		],
-		techStack: [
-			{ label: 'Dashboard', value: 'React' },
-			{ label: 'Components', value: 'Elementor' },
-			{ label: 'Backend', value: 'Supabase' },
-			{ label: 'Styling', value: 'SCSS' },
-			{ label: 'CMS', value: 'WordPress' },
-		],
-		galleryImage: '/images/eliment_dashboard.png',
-		galleryCaption: 'FIG 01. COMPONENT LIBRARY INTERFACE',
-		outcomes: [
-			{ value: '100%', label: 'Elementor Compatible' },
-			{ value: 'Modern', label: 'React Architecture' },
-			{ value: 'Scalable', label: 'Supabase Backend' },
-		],
-		previousProject: null,
-		nextProject: {
-			slug: 'jonny-cocktail',
-			title: 'Jonny Cocktail',
-			subtitle: 'Corporate Events Landing Page',
-		},
-		tags: ['React', 'Supabase', 'SCSS', 'WordPress', 'Elementor'],
-		is_featured: true,
-	},
+	// eliment: {
+	// 	slug: 'eliment',
+	// 	title: 'ELIMENT',
+	// 	description:
+	// 		'A comprehensive Elementor component library with a React dashboard, allowing users to browse, preview, and copy components directly into their Elementor sites.',
+	// 	client: 'Eliment.io',
+	// 	role: 'Full Stack Developer',
+	// 	year: '2025',
+	// 	demoUrl: 'https://eliment.io',
+	// 	heroImage: '/images/eliment_io.png',
+	// 	challenge:
+	// 		'Elementor users needed a way to access modern, reusable components that they could easily copy and paste into their own WordPress sites. The challenge was creating a component library where components use consistent styles, allowing users to apply their own custom styling while providing a seamless preview and browsing experience through a React dashboard.',
+	// 	solution: [
+	// 		"Built an Elementor component library where each component uses consistent styles sitewide, allowing end-users to easily copy and paste components into their own Elementor sites and apply their own custom styles. Future plans include automatic adaptation to users' global fonts, colors, and typography settings from their Elementor configuration.",
+	// 		'Created a preview domain using WordPress and Elementor, where components are built and displayed. These components are embedded via iFrame into the React dashboard, providing users with a true-to-life demonstration of how components work within the actual Elementor editor.',
+	// 		'Integrated Supabase for authentication, with planned payment functionality for future releases. Supabase also powers the admin system, allowing administrators to add new components and link them from the preview site to the React dashboard.',
+	// 		'Developed a custom SCSS architecture for the dashboard design, ensuring a maintainable and cohesive styling system for the React-based admin interface.',
+	// 	],
+	// 	techStack: [
+	// 		{ label: 'Dashboard', value: 'React' },
+	// 		{ label: 'Components', value: 'Elementor' },
+	// 		{ label: 'Backend', value: 'Supabase' },
+	// 		{ label: 'Styling', value: 'SCSS' },
+	// 		{ label: 'CMS', value: 'WordPress' },
+	// 	],
+	// 	galleryImage: '/images/eliment_dashboard.png',
+	// 	galleryCaption: 'FIG 01. COMPONENT LIBRARY INTERFACE',
+	// 	outcomes: [
+	// 		{ value: '100%', label: 'Elementor Compatible' },
+	// 		{ value: 'Modern', label: 'React Architecture' },
+	// 		{ value: 'Scalable', label: 'Supabase Backend' },
+	// 	],
+	// 	previousProject: null,
+	// 	nextProject: {
+	// 		slug: 'jonny-cocktail',
+	// 		title: 'Jonny Cocktail',
+	// 		subtitle: 'Corporate Events Landing Page',
+	// 	},
+	// 	tags: ['React', 'Supabase', 'SCSS', 'WordPress', 'Elementor'],
+	// 	is_featured: true,
+	// },
 	'jonny-cocktail': {
 		slug: 'jonny-cocktail',
 		title: 'JONNY\nCOCKTAIL',

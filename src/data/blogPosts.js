@@ -72,40 +72,40 @@ export const blogPosts = [
 			},
 		],
 	},
-	{
-		slug: 'building-a-component-library',
-		date: formattedDate,
-		title: 'Building a component library',
-		category: 'SaaS',
-		content: [
-			{
-				type: 'paragraph',
-				text: 'Building a component library is my latest idea. I work with Elementor pretty much every day, especially since I work for a WordPress agency in Manchester. Building with Elementor gives site owners the ability to change content themselves, which is a huge bonus. Elementor is also one of the biggest page builder plugins out there. It does get a bit of a bad reputation at times, but with my builds I always prove that if it is used correctly, it can be incredibly fast for both users and developers.',
-			},
-			{
-				type: 'paragraph',
-				segments: [
-					{
-						type: 'text',
-						text: 'There are plenty of times where I create a component and then end up needing it again in a future project. That is what pushed me to start building a component library. I wanted a place to store everything I create, along with any open source components I find along the way. At first this library was meant only for me. Then I had a thought: what if other people would actually pay for this? And that is how ',
-					},
-					{
-						type: 'link',
-						text: 'Eliment.io',
-						url: 'https://eliment.io',
-					},
-					{
-						type: 'text',
-						text: ' was born. It is a component library for Elementor. The MVP was built in just four weeks and launched at the beginning of December. Now the real work begins, which is manually adding all the components into the app. There are similar products out there, but like with everything I do, I have dozens of ideas that will make mine better and more feature rich.',
-					},
-				],
-			},
-			{
-				type: 'paragraph',
-				text: 'Maybe this project will make me money. Maybe I will not get a single visitor or signup. It honestly does not matter. This is something I will use myself five days a week, so it is not time wasted. In fact, I expect it to cut my development time in half.',
-			},
-		],
-	},
+	// {
+	// 	slug: 'building-a-component-library',
+	// 	date: formattedDate,
+	// 	title: 'Building a component library',
+	// 	category: 'SaaS',
+	// 	content: [
+	// 		{
+	// 			type: 'paragraph',
+	// 			text: 'Building a component library is my latest idea. I work with Elementor pretty much every day, especially since I work for a WordPress agency in Manchester. Building with Elementor gives site owners the ability to change content themselves, which is a huge bonus. Elementor is also one of the biggest page builder plugins out there. It does get a bit of a bad reputation at times, but with my builds I always prove that if it is used correctly, it can be incredibly fast for both users and developers.',
+	// 		},
+	// 		{
+	// 			type: 'paragraph',
+	// 			segments: [
+	// 				{
+	// 					type: 'text',
+	// 					text: 'There are plenty of times where I create a component and then end up needing it again in a future project. That is what pushed me to start building a component library. I wanted a place to store everything I create, along with any open source components I find along the way. At first this library was meant only for me. Then I had a thought: what if other people would actually pay for this? And that is how ',
+	// 				},
+	// 				{
+	// 					type: 'link',
+	// 					text: 'Eliment.io',
+	// 					url: 'https://eliment.io',
+	// 				},
+	// 				{
+	// 					type: 'text',
+	// 					text: ' was born. It is a component library for Elementor. The MVP was built in just four weeks and launched at the beginning of December. Now the real work begins, which is manually adding all the components into the app. There are similar products out there, but like with everything I do, I have dozens of ideas that will make mine better and more feature rich.',
+	// 				},
+	// 			],
+	// 		},
+	// 		{
+	// 			type: 'paragraph',
+	// 			text: 'Maybe this project will make me money. Maybe I will not get a single visitor or signup. It honestly does not matter. This is something I will use myself five days a week, so it is not time wasted. In fact, I expect it to cut my development time in half.',
+	// 		},
+	// 	],
+	// },
 ];
 
 export const getPostBySlug = (slug) => {
