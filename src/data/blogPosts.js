@@ -21,7 +21,7 @@ export const blogPosts = [
 				segments: [
 					{
 						type: "text",
-						text: "Most of my time these days is spent working with WordPress—by day for a global company, by night for a business in the UK. Whenever I have free time, I work on my own projects. Some are public, others are still under wraps. I’m always looking for ways to build something new or improve on what’s out there, but coming up with a truly original idea isn’t easy. On this site, you’ll find a mix: original concepts, reworks of existing tools, and the occasional project that didn’t go as planned. That’s just part of how I work. I’m always experimenting and seeing what sticks.",
+						text: "Most of my time these days is spent working with WordPress - by day for a global company, by night for a business in the UK. Whenever I have free time, I work on my own projects. Some are public, others are still under wraps. I’m always looking for ways to build something new or improve on what’s out there, but coming up with a truly original idea isn’t easy. On this site, you’ll find a mix: original concepts, reworks of existing tools, and the occasional project that didn’t go as planned. That’s just part of how I work. I’m always experimenting and seeing what sticks.",
 					},
 				],
 			},
