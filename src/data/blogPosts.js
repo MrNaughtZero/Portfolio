@@ -60,6 +60,210 @@ export const blogPosts = [
 			},
 		],
 	},
+	{
+		slug: "building-bugshield",
+		date: "2026 / 08 / 08",
+		title: "Building BugShield, and going all in",
+		category: "Project",
+		content: [
+			{
+				type: "paragraph",
+				text: "I've spent a lot of my career working with WordPress.",
+			},
+			{
+				type: "paragraph",
+				text: "Day jobs, freelance work, client sites, and the occasional late-night message because someone's checkout has suddenly stopped working.",
+			},
+			{
+				type: "heading",
+				text: "The same problem, over and over",
+			},
+			{
+				type: "paragraph",
+				text: "And after doing it for years, I kept seeing the same problem.",
+			},
+			{
+				type: "paragraph",
+				text: "Something breaks. The site owner panics. They start emailing developers or trying to find a freelancer who can look at it. Passwords end up being sent over email or WhatsApp, and once the problem is fixed, that's usually the end of it until something else goes wrong.",
+			},
+			{
+				type: "paragraph",
+				segments: [
+					{
+						type: "text",
+						text: "That's basically where ",
+					},
+					{
+						type: "link",
+						text: "BugShield",
+						url: "https://bugshield.co.uk",
+					},
+					{
+						type: "text",
+						text: " came from.",
+					},
+				],
+			},
+			{
+				type: "heading",
+				text: "Making WordPress help less painful",
+			},
+			{
+				type: "paragraph",
+				text: "I built BugShield to make getting help with WordPress a lot less painful. If something is broken, you tell us what's wrong, pay a fixed price and a developer takes care of it. You can chat directly with them while they work on the issue and keep track of everything from your dashboard.",
+			},
+			{
+				type: "paragraph",
+				text: "For people who don't want to wait until something breaks, there are maintenance plans too. We can monitor the site, take off-site backups and handle fixes as they come up.",
+			},
+			{
+				type: "heading",
+				text: "A platform, not a contact form",
+			},
+			{
+				type: "paragraph",
+				text: "But I didn't want BugShield to just be another WordPress agency website with a contact form on the front.",
+			},
+			{
+				type: "paragraph",
+				text: "I wanted to actually build a platform around the service.",
+			},
+			{
+				type: "paragraph",
+				segments: [
+					{
+						type: "text",
+						text: "Every site has its own workspace. Fixes can be requested and tracked through the dashboard, there's a chat for each job, and credentials can be stored in an encrypted ",
+					},
+					{
+						type: "link",
+						text: "Password Vault",
+						url: "https://bugshield.co.uk/security",
+					},
+					{
+						type: "text",
+						text: " instead of being passed around in emails.",
+					},
+				],
+			},
+			{
+				type: "paragraph",
+				segments: [
+					{
+						type: "text",
+						text: "There's also ",
+					},
+					{
+						type: "link",
+						text: "24/7 uptime and performance monitoring",
+						url: "https://bugshield.co.uk/monitoring",
+					},
+					{
+						type: "text",
+						text: ", ",
+					},
+					{
+						type: "link",
+						text: "off-site cloud backups",
+						url: "https://bugshield.co.uk/backups",
+					},
+					{
+						type: "text",
+						text: ", activity logs and multi-site management for people looking after several WordPress sites.",
+					},
+				],
+			},
+			{
+				type: "heading",
+				text: "Plans and pricing",
+			},
+			{
+				type: "paragraph",
+				text: "One-off fixes start at £49.99.",
+			},
+			{
+				type: "paragraph",
+				segments: [
+					{
+						type: "link",
+						text: "Shield Light",
+						url: "https://bugshield.co.uk/shield-light",
+					},
+					{
+						type: "text",
+						text: " is £99/month and includes two fixes each month, weekly backups and monitoring. ",
+					},
+					{
+						type: "link",
+						text: "Shield Pro",
+						url: "https://bugshield.co.uk/shield-pro",
+					},
+					{
+						type: "text",
+						text: " is £199/month and includes unlimited fixes, daily backups, malware prevention and priority response times.",
+					},
+				],
+			},
+			{
+				type: "heading",
+				text: "Bigger than I expected",
+			},
+			{
+				type: "paragraph",
+				text: "Building all of this has been a much bigger project than I originally expected.",
+			},
+			{
+				type: "paragraph",
+				text: "The actual WordPress fixes are the familiar part. The challenge has been everything around them: payments, subscriptions, developer workflows, secure credential access, audit logs, monitoring infrastructure, backups, the WordPress plugin, notifications and building a dashboard that doesn't require someone to be technical to understand it.",
+			},
+			{
+				type: "heading",
+				text: "Outside the app",
+			},
+			{
+				type: "paragraph",
+				text: "I've spent a huge amount of time building out the BugShield website too, including guides, solutions to common WordPress problems, case studies and documentation. A lot of it isn't particularly exciting work, but it's the stuff that turns an idea into an actual business.",
+			},
+			{
+				type: "heading",
+				text: "Going all in",
+			},
+			{
+				type: "paragraph",
+				text: "I'm proud of the client work I've done over the years, but BugShield feels different because it's mine.",
+			},
+			{
+				type: "paragraph",
+				text: "It's something I want to keep building for the long term, and it's where I'm putting most of my time and energy now.",
+			},
+			{
+				type: "paragraph",
+				text: "Less jumping between random freelance jobs. More improving BugShield, adding features, making the platform better and hopefully building something WordPress site owners genuinely find useful.",
+			},
+			{
+				type: "paragraph",
+				segments: [
+					{
+						type: "text",
+						text: "If you run a WordPress site and you're fed up with having to hunt around for someone every time something goes wrong, have a look at ",
+					},
+					{
+						type: "link",
+						text: "BugShield",
+						url: "https://bugshield.co.uk",
+					},
+					{
+						type: "text",
+						text: ".",
+					},
+				],
+			},
+			{
+				type: "paragraph",
+				text: "This is the project I'm all in on.",
+			},
+		],
+	},
 ];
 
 export const getPostBySlug = (slug) => {
