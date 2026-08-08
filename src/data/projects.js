@@ -1,4 +1,43 @@
 export const projects = {
+	bugshield: {
+		slug: "bugshield",
+		title: "BUGSHIELD",
+		description:
+			"A WordPress care platform for one-off bug fixes, maintenance plans, 24/7 monitoring, cloud backups, and encrypted credential storage. Built as a full product, not just an agency site.",
+		client: "BugShield",
+		role: "Founder & Full Stack Developer",
+		year: "2026",
+		demoUrl: "https://bugshield.co.uk",
+		heroImage: "/images/bugshield.png",
+		challenge:
+			"WordPress site owners kept hitting the same wall: something breaks, they panic, passwords get sent over email or WhatsApp, and they chase freelancers until the next thing goes wrong. The challenge was not just offering WordPress fixes. It was building a real platform around that service so requesting help, storing credentials, tracking work, and ongoing care all lived in one place.",
+		solution: [
+			"Built BugShield as a full WordPress care platform where owners can request fixes at a clear price, chat with the assigned developer, and track progress from a dashboard.",
+			"Added an encrypted Password Vault, 24/7 monitoring, off-site cloud backups, activity logs, and multi-site workspaces so credentials and ongoing care are not scattered across tools and inboxes.",
+			"Shipped maintenance plans alongside one-off fixes. Shield Light and Shield Pro cover monitoring, backups, and included or unlimited bug fixes depending on the plan.",
+			"Built out the marketing and support site with guides, solutions, case studies, and documentation so the product works as a business, not just an app with a contact form.",
+		],
+		techStack: [
+			{ label: "Frontend", value: "React + Tailwind" },
+			{ label: "Marketing", value: "Astro" },
+			{ label: "Backend", value: "Python" },
+			{ label: "Database", value: "SQL" },
+		],
+		galleryImage: "/images/bugshield.png",
+		galleryCaption: "FIG 01. BUGSHIELD HOMEPAGE",
+		outcomes: [
+			{ value: "Full Platform", label: "Not Just A Website" },
+			{ value: "End-to-End", label: "Product Ownership" },
+			{ value: "All In", label: "Primary Focus" },
+		],
+		nextProject: {
+			slug: "jonny-cocktail",
+			title: "Jonny Cocktail",
+			subtitle: "Corporate Events Landing Page",
+		},
+		tags: ["React", "Tailwind", "Python", "Astro", "SQL"],
+		is_featured: true,
+	},
 	"jonny-cocktail": {
 		slug: "jonny-cocktail",
 		title: "JONNY\nCOCKTAIL",
@@ -36,6 +75,11 @@ export const projects = {
 		},
 		tags: ["WordPress", "Elementor", "Figma", "Corporate"],
 		is_featured: true,
+		previousProject: {
+			slug: "bugshield",
+			title: "BugShield",
+			subtitle: "WordPress Care Platform",
+		},
 	},
 	ojk: {
 		slug: "ojk",

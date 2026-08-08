@@ -18,7 +18,7 @@ function Work() {
 					Projects
 				</h2>
 				<span className="text-zinc-500 dark:text-zinc-600 font-mono hidden md:inline-block">
-					(2020 - 2025)
+					(2020 - 2026)
 				</span>
 			</div>
 

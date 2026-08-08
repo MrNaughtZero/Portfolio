@@ -194,7 +194,7 @@ function Header() {
 						</a>
 					</div>
 					<p className="text-xs text-zinc-500 dark:text-zinc-700 mt-2">
-						© 2025 United Kingdom
+						© 2026 United Kingdom
 					</p>
 				</div>
 			</header>
