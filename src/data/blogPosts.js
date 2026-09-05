@@ -264,6 +264,392 @@ export const blogPosts = [
 			},
 		],
 	},
+	{
+		slug: "i-hacked-the-target-omni",
+		date: "2026 / 09 / 05",
+		title: "I hacked the Target Omni and found out how insecure it actually is",
+		category: "Security",
+		content: [
+			{
+				type: "callout",
+				paragraphs: [
+					{
+						segments: [
+							{ type: "bold", text: "I emailed Target three times." },
+						],
+					},
+					{
+						segments: [
+							{ type: "text", text: "Those emails were opened " },
+							{ type: "bold", text: "14 times" },
+							{
+								type: "text",
+								text: ". Nobody replied. Nobody asked for more detail. Nobody asked how to fix it.",
+							},
+						],
+					},
+					{
+						text: "I was offering them a chance to lock their own product down before I wrote about it. They had the messages. They read them. They chose not to engage.",
+					},
+				],
+			},
+			{
+				type: "paragraph",
+				text: "I bought a Target Omni because, on paper, it's a brilliant bit of kit.",
+			},
+			{
+				type: "paragraph",
+				text: "Four cameras around a dartboard watch where your darts land, work out the score, and send it into DartCounter. The hardware is genuinely impressive.",
+			},
+			{
+				type: "paragraph",
+				text: "The software is what got to me.",
+			},
+			{
+				type: "paragraph",
+				segments: [
+					{
+						type: "text",
+						text: "After enough time with DartCounter, I was frustrated enough to ask a fairly reasonable question: ",
+					},
+					{
+						type: "bold",
+						text: "I've already paid for the Omni. Why can't I just build my own app and use the hardware with that instead?",
+					},
+				],
+			},
+			{
+				type: "paragraph",
+				text: "I wasn't looking for a vulnerability. I wasn't trying to cheat. I wanted to understand how my Omni talked to DartCounter so I could put my own interface on top of it.",
+			},
+			{
+				type: "paragraph",
+				text: "What I found went a lot further than that.",
+			},
+			{
+				type: "paragraph",
+				text: "By the end, I had effectively full access to the system running inside my Omni. I could look at the filesystem, see what was running, get at the software that operates the device, and, critically, read its source code.",
+			},
+			{
+				type: "paragraph",
+				text: "That code showed me how the Omni works. It also made something else obvious: with this level of access, messing with the scoring system, and potentially cheating, wasn't a theoretical stretch. It was sitting right there.",
+			},
+			{
+				type: "paragraph",
+				text: "I told Target. Three emails. Those emails were opened 14 times. Silence.",
+			},
+			{
+				type: "heading",
+				text: "It started because I didn't like DartCounter",
+			},
+			{
+				type: "paragraph",
+				text: "There's no hacker origin story. I just wasn't that keen on DartCounter.",
+			},
+			{
+				type: "paragraph",
+				text: "The Omni itself is a great idea. Automatic scoring on a real dartboard makes online darts much more fun. But you're stuck in Target's software ecosystem, and I wanted more control.",
+			},
+			{
+				type: "paragraph",
+				text: "I'm a developer, so the next thought was obvious: why don't I just build my own?",
+			},
+			{
+				type: "paragraph",
+				text: "I didn't need to reinvent the computer vision. The Omni had already solved the hard problem of working out where a dart landed. I just needed the result:",
+			},
+			{
+				type: "blockquote",
+				text: "Dart detected → Treble 20 → 60 points",
+			},
+			{
+				type: "paragraph",
+				text: "If I could work out how the Omni sent that information, I could feed it into my own app. So I started poking at a device I owned.",
+			},
+			{
+				type: "heading",
+				text: "The Omni is more than four cameras",
+			},
+			{
+				type: "paragraph",
+				text: "From the outside it looks simple: four cameras and a box. Underneath, it's a small computer on your network. It has an operating system, it runs software, it has services listening for connections, and it talks to other devices on the LAN.",
+			},
+			{
+				type: "paragraph",
+				text: "Once that clicked, the goal was straightforward: find out what it was running, and how everything else talked to it.",
+			},
+			{
+				type: "paragraph",
+				text: "I looked at my local network, found the Omni, and started examining the services it exposed.",
+			},
+			{
+				type: "paragraph",
+				text: "That's when my opinion of its security started to change.",
+			},
+			{
+				type: "heading",
+				text: "I got in",
+			},
+			{
+				type: "paragraph",
+				text: "I'm going to skip some details here. There's a difference between describing a security problem and publishing a walkthrough anyone with an Omni can follow.",
+			},
+			{
+				type: "paragraph",
+				text: "After looking at the services the device exposed, I found a route that gave me far more access than I expected. Not a locked-down Omni API. Not \"please send the latest score.\" System-level access to my own device.",
+			},
+			{
+				type: "paragraph",
+				text: "At that point the question stopped being \"how does DartCounter get my score?\" and became \"why can I see all of this?\"",
+			},
+			{
+				type: "heading",
+				text: "I could explore the filesystem",
+			},
+			{
+				type: "paragraph",
+				text: "Inside, the Omni stopped being a black box hanging around my dartboard. I could look at directories, config, processes, services, application files, logs, dependencies, the usual contents of a Linux box.",
+			},
+			{
+				type: "paragraph",
+				text: "As a developer, that was fascinating. As a security finding, it was worrying.",
+			},
+			{
+				type: "paragraph",
+				text: "A consumer IoT device should assume its owner is curious, and possibly hostile. If getting into one part of the system hands you the rest of it, a single weakness suddenly matters a lot more.",
+			},
+			{
+				type: "paragraph",
+				text: "And the most interesting thing on that filesystem was the Omni software itself.",
+			},
+			{
+				type: "heading",
+				text: "Then I found the source code",
+			},
+			{
+				type: "paragraph",
+				text: "This is where the original project got a lot easier.",
+			},
+			{
+				type: "paragraph",
+				text: "I'd started by trying to reverse-engineer the Omni from the outside. Now I could see how parts of it actually worked. I found the application code that runs the system: how components talk to each other, how scores are represented, which services are involved, how events move from one part of the software to another.",
+			},
+			{
+				type: "paragraph",
+				text: "I'm not publishing that source code. I'm not publishing where it lives, or the full sequence I used to get it.",
+			},
+			{
+				type: "paragraph",
+				text: "Having it just made everything clearer. Instead of guessing from network traffic, I could compare what I was seeing on the wire with what the software was actually doing. Building my own darts app suddenly looked realistic.",
+			},
+			{
+				type: "paragraph",
+				text: "Then another question came up, almost inevitably.",
+			},
+			{
+				type: "heading",
+				text: "If I control the Omni, can I control the score?",
+			},
+			{
+				type: "paragraph",
+				text: "Automatic scoring is supposed to create trust.",
+			},
+			{
+				type: "paragraph",
+				text: "If you're playing someone online and they're typing scores in by hand, they can lie. They throw 45 and enter 85. There's not much you can do about that.",
+			},
+			{
+				type: "paragraph",
+				text: "The Omni is meant to fix it. Four cameras see where the darts landed; the software does the rest. When it says someone hit a 180, you have a better reason to believe it.",
+			},
+			{
+				type: "paragraph",
+				text: "Except I'd just got extensive control over the machine that produces that trusted number. So I tested what happened if I interfered with it.",
+			},
+			{
+				type: "paragraph",
+				text: "That's where it got messy.",
+			},
+			{
+				type: "heading",
+				text: "Yes, this could be used to cheat",
+			},
+			{
+				type: "paragraph",
+				text: "Once you have enough control over the scoring system, the darts on the board and the score on the screen don't have to match.",
+			},
+			{
+				type: "paragraph",
+				segments: [
+					{ type: "text", text: "Take a bad visit: " },
+					{ type: "bold", text: "20 + 5 + 1 = 26" },
+					{
+						type: "text",
+						text: ". The cameras can still read those darts correctly. But if someone can interfere with what happens ",
+					},
+					{ type: "em", text: "after" },
+					{
+						type: "text",
+						text: " detection, the software can end up reporting something else entirely: ",
+					},
+					{ type: "bold", text: "T20 + T20 + T20 = 180" },
+					{ type: "text", text: "." },
+				],
+			},
+			{
+				type: "paragraph",
+				text: "You haven't fooled the cameras. That's the point. You don't have to beat the cleverest part of the product. Target may have built a very accurate vision system. You don't need to defeat that if you can compromise the computer processing the results.",
+			},
+			{
+				type: "heading",
+				text: "Cheating could be much quieter than fake 180s",
+			},
+			{
+				type: "paragraph",
+				text: "Someone throwing 26 and scoring 180 every visit wouldn't last five minutes. Their opponent would notice. Their stats would look insane.",
+			},
+			{
+				type: "paragraph",
+				text: "That's not what makes this access worrying.",
+			},
+			{
+				type: "paragraph",
+				text: "The useful version is subtle. A 45 becomes 60. A bad dart disappears from a visit. A dart that missed the double by a whisker becomes a checkout. You wouldn't need to turn yourself into Luke Littler. You'd only need a small nudge at the right moment, which is much harder for an opponent, or even an automated anti-cheat system, to spot.",
+			},
+			{
+				type: "heading",
+				text: "The bigger problem isn't cheating",
+			},
+			{
+				type: "paragraph",
+				text: "Cheating is a useful example because everyone immediately gets the consequence. It's not what bothered me most.",
+			},
+			{
+				type: "paragraph",
+				text: "The bigger issue is how much access I got.",
+			},
+			{
+				type: "paragraph",
+				text: "I started with a consumer device on my network and a simple goal: understand its protocol. I ended up with extensive access to the underlying system and the software that runs it. Those are not the same thing.",
+			},
+			{
+				type: "paragraph",
+				text: "Security should be layered. Finding one exposed service shouldn't hand you sensitive application files. Compromising an application shouldn't give you the operating system. Getting the operating system shouldn't dump secrets and other internals in your lap.",
+			},
+			{
+				type: "paragraph",
+				text: "That's defence in depth, and the idea is simple: assume one layer will fail. What stops the next one?",
+			},
+			{
+				type: "heading",
+				text: "Physical ownership changes the model",
+			},
+			{
+				type: "paragraph",
+				text: "Devices like the Omni have an awkward security problem: they live in the customer's house.",
+			},
+			{
+				type: "paragraph",
+				text: "I control the network. I physically have the device. I can watch its traffic for as long as I want, restart it, poke it thousands of times, compare what happens when I throw different darts. Nobody is rushing me.",
+			},
+			{
+				type: "paragraph",
+				text: "That's why security through obscurity is a poor bet for consumer hardware. You have to assume someone curious will eventually take it apart. The system shouldn't rely on nobody understanding how it works.",
+			},
+			{
+				type: "heading",
+				text: "I still want my own darts app",
+			},
+			{
+				type: "paragraph",
+				text: "Despite all of this, the original motivation hasn't really changed. I still think the Omni hardware is great. I still want more freedom over the software I use with it.",
+			},
+			{
+				type: "paragraph",
+				text: "The investigation taught me far more about how the Omni works than I expected, and it opened up some genuinely interesting options for my own software. It also showed why connected sporting kit needs to be treated as a security-sensitive system, especially when it's being used to verify results between people competing remotely.",
+			},
+			{
+				type: "paragraph",
+				text: "If a device is acting as the referee, compromising that device means compromising the referee.",
+			},
+			{
+				type: "heading",
+				text: "Why I'm not publishing everything",
+			},
+			{
+				type: "paragraph",
+				text: "I could make this much more technical. I could name the services, show exactly how I got in, include commands, publish chunks of source, and go into more detail on how scores could be changed.",
+			},
+			{
+				type: "paragraph",
+				text: "I'm not going to.",
+			},
+			{
+				type: "paragraph",
+				text: "There's enough here for developers and security people to understand what I found and why it matters. There isn't enough to turn this into \"how to cheat at DartCounter in five minutes.\" That distinction matters.",
+			},
+			{
+				type: "paragraph",
+				text: "Dumping proprietary source from the device onto the internet wouldn't add much either. The finding isn't the code. It's the level of access I was able to get.",
+			},
+			{
+				type: "paragraph",
+				text: "Target had the same opportunity I did: ask for the details, fix the problem, make the next person's curiosity less dangerous. They opened the emails. They didn't take it.",
+			},
+			{
+				type: "heading",
+				text: "I didn't expect to find this",
+			},
+			{
+				type: "paragraph",
+				text: "None of this started as a security audit. I wasn't sat around asking how to hack the Target Omni. I was asking whether I could make a better darts app.",
+			},
+			{
+				type: "paragraph",
+				text: "So I investigated a device I owned. That went from watching network traffic, to finding the Omni, to looking at the services it exposed, to getting in, to exploring the system, to finding the application code, to understanding scoring, and eventually to realising that my access had implications for the integrity of online games.",
+			},
+			{
+				type: "paragraph",
+				text: "That's the part of this work I like. Sometimes you don't start with a vulnerability. You start with curiosity.",
+			},
+			{
+				type: "heading",
+				text: "Final thoughts",
+			},
+			{
+				type: "paragraph",
+				text: "I still like the Target Omni. The hardware is why I started. It's a clever product, and automatic scoring makes online darts better.",
+			},
+			{
+				type: "paragraph",
+				text: "But I came away with serious questions about the security around it.",
+			},
+			{
+				type: "paragraph",
+				text: "A consumer shouldn't be able to go from \"I wonder how this talks to the app?\" to effectively full access to the system and the application source as easily as I did. And when that same device is responsible for trusted scores on an online competitive platform, the weaknesses don't stop at the dartboard.",
+			},
+			{
+				type: "paragraph",
+				text: "Once you control the machine acting as the referee, you have to start questioning whether you can trust the result.",
+			},
+			{
+				type: "paragraph",
+				text: "I just wanted to build my own darts app.",
+			},
+			{
+				type: "paragraph",
+				text: "I ended up owning the referee.",
+			},
+			{
+				type: "paragraph",
+				text: "They had three chances to talk to me about it. They opened the emails fourteen times. They never wrote back.",
+			},
+			{
+				type: "disclaimer",
+				text: "This research was performed against hardware and network infrastructure I own and control. I contacted Target three times before publishing. Those emails were opened 14 times. I received no response, and no request for further information that would have helped them secure the system. I have intentionally omitted specific exploitation steps, credentials, commands, source code and other information that could make reproduction or abuse unnecessarily easy.",
+			},
+		],
+	},
 ];
 
 export const getPostBySlug = (slug) => {

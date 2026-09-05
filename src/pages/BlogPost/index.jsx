@@ -3,6 +3,38 @@ import BlogHeader from '../../components/BlogHeader';
 import Footer from '../../components/Footer';
 import { getPostBySlug } from '../../data/blogPosts';
 
+function renderSegments(segments) {
+	return segments.map((segment, segIndex) => {
+		if (segment.type === 'link') {
+			return (
+				<a
+					key={segIndex}
+					href={segment.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-blue-600 dark:text-blue-400 hover:underline"
+				>
+					{segment.text}
+				</a>
+			);
+		}
+		if (segment.type === 'bold') {
+			return (
+				<strong
+					key={segIndex}
+					className="font-medium text-black dark:text-white"
+				>
+					{segment.text}
+				</strong>
+			);
+		}
+		if (segment.type === 'em') {
+			return <em key={segIndex}>{segment.text}</em>;
+		}
+		return <span key={segIndex}>{segment.text}</span>;
+	});
+}
+
 function BlogPost() {
 	const { slug } = useParams();
 	const post = getPostBySlug(slug);
@@ -69,6 +101,52 @@ function BlogPost() {
 									</h2>
 								);
 							}
+							if (block.type === 'callout') {
+								return (
+									<aside
+										key={index}
+										className="border border-black/15 dark:border-white/15 bg-black/[0.03] dark:bg-white/[0.03] px-6 py-6 mb-12"
+									>
+										{block.paragraphs.map((paragraph, pIndex) => (
+											<p
+												key={pIndex}
+												className={`text-zinc-800 dark:text-zinc-300 leading-relaxed text-lg ${
+													pIndex ===
+													block.paragraphs.length - 1
+														? 'mb-0'
+														: 'mb-4'
+												}`}
+											>
+												{paragraph.segments
+													? renderSegments(
+															paragraph.segments
+														)
+													: paragraph.text}
+											</p>
+										))}
+									</aside>
+								);
+							}
+							if (block.type === 'blockquote') {
+								return (
+									<blockquote
+										key={index}
+										className="border-l-2 border-black/20 dark:border-white/20 pl-6 my-8 text-xl font-heading text-black dark:text-white"
+									>
+										{block.text}
+									</blockquote>
+								);
+							}
+							if (block.type === 'disclaimer') {
+								return (
+									<p
+										key={index}
+										className="text-zinc-500 dark:text-zinc-500 leading-relaxed text-sm italic mt-12 mb-6 border-t border-black/10 dark:border-white/10 pt-8"
+									>
+										{block.text}
+									</p>
+								);
+							}
 							if (block.type === 'paragraph') {
 								if (block.segments) {
 									return (
@@ -76,32 +154,7 @@ function BlogPost() {
 											key={index}
 											className="text-zinc-700 dark:text-zinc-400 leading-relaxed text-lg mb-6"
 										>
-											{block.segments.map(
-												(segment, segIndex) => {
-													if (
-														segment.type === 'link'
-													) {
-														return (
-															<a
-																key={segIndex}
-																href={
-																	segment.url
-																}
-																target="_blank"
-																rel="noopener noreferrer"
-																className="text-blue-600 dark:text-blue-400 hover:underline"
-															>
-																{segment.text}
-															</a>
-														);
-													}
-													return (
-														<span key={segIndex}>
-															{segment.text}
-														</span>
-													);
-												}
-											)}
+											{renderSegments(block.segments)}
 										</p>
 									);
 								}
