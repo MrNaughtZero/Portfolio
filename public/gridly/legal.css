@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap');
+
+:root {
+	color-scheme: light dark;
+	--bg: #f0f0f0;
+	--text: #3f3f46;
+	--heading: #0a0a0a;
+	--muted: #71717a;
+	--link: #1d4ed8;
+	--border: rgba(0, 0, 0, 0.12);
+	--nav: #52525b;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #0a0a0a;
+		--text: #d4d4d8;
+		--heading: #ffffff;
+		--muted: #a1a1aa;
+		--link: #93c5fd;
+		--border: rgba(255, 255, 255, 0.12);
+		--nav: #a1a1aa;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--bg);
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: Inter, sans-serif;
+	font-size: 1.0625rem;
+	line-height: 1.7;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: var(--link);
+}
+
+a:hover {
+	text-decoration-thickness: 2px;
+}
+
+.page {
+	max-width: 42rem;
+	margin: 0 auto;
+	padding: 3rem 1.5rem 4rem;
+}
+
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1.25rem;
+	margin: 0 0 2.5rem;
+	padding: 0;
+	list-style: none;
+	font-family: ui-monospace, SFMono-Regular, monospace;
+	font-size: 0.75rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.nav a {
+	color: var(--nav);
+	text-decoration: none;
+}
+
+.nav a:hover,
+.nav a[aria-current='page'] {
+	color: var(--heading);
+	text-decoration: underline;
+	text-underline-offset: 0.25rem;
+}
+
+h1,
+h2 {
+	font-family: 'Space Grotesk', sans-serif;
+	color: var(--heading);
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+h1 {
+	margin: 0 0 2rem;
+	font-size: clamp(2.25rem, 5vw, 3.5rem);
+	letter-spacing: -0.03em;
+}
+
+h2 {
+	margin: 2.5rem 0 0.75rem;
+	font-size: 1.5rem;
+}
+
+p,
+ul {
+	margin: 0 0 1rem;
+}
+
+ul {
+	padding-left: 1.25rem;
+}
+
+li + li {
+	margin-top: 0.5rem;
+}
+
+.effective {
+	margin-top: -1rem;
+}
+
+.footer {
+	margin-top: 3rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--border);
+	color: var(--muted);
+	font-family: ui-monospace, SFMono-Regular, monospace;
+	font-size: 0.8125rem;
+}

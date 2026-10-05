@@ -3,9 +3,30 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs';
 
+const gridlyLegalRoutes = {
+	'/gridly/support': '/gridly/support/index.html',
+	'/gridly/support/': '/gridly/support/index.html',
+	'/gridly/privacy': '/gridly/privacy/index.html',
+	'/gridly/privacy/': '/gridly/privacy/index.html',
+	'/gridly/terms': '/gridly/terms/index.html',
+	'/gridly/terms/': '/gridly/terms/index.html',
+};
+
 export default defineConfig({
 	plugins: [
 		react(),
+		{
+			name: 'gridly-legal-pages',
+			configureServer(server) {
+				server.middlewares.use((req, _res, next) => {
+					const url = req.url?.split('?')[0];
+					if (url && gridlyLegalRoutes[url]) {
+						req.url = gridlyLegalRoutes[url];
+					}
+					next();
+				});
+			},
+		},
 		{
 			name: 'spa-github-pages-fallback',
 			closeBundle() {
